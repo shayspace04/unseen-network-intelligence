@@ -1,0 +1,27 @@
+{
+  "scenario_id": "ethernet-interface-fault",
+  "name": "Engineering Lab 3 — Physical Interface Degradation",
+  "category": "interface_fault",
+  "description": "Failing SFP optical transceiver and degraded patch cable causing frame CRC alignment errors on access switch edge-sw-eng-02.",
+  "monitored_devices": 540,
+  "affected_devices": 10,
+  "aggregate_health_pct": 98.1,
+  "affected_cohort_metrics": {
+    "interface_errors": 420,
+    "packet_loss_pct": 18.4,
+    "latency_ms": 48.5,
+    "link_utilization_pct": 14.2,
+    "egress_queue_drops": 0
+  },
+  "control_cohort_metrics": {
+    "interface_errors": 0,
+    "packet_loss_pct": 0.0,
+    "latency_ms": 3.8,
+    "link_utilization_pct": 12.0,
+    "egress_queue_drops": 0
+  },
+  "choke_point": "edge-sw-eng-02",
+  "expected_verdict": "PROBABLE_FAULT",
+  "expected_root_cause": "Physical Layer Ethernet Interface Degradation (CRC Frame Drops) on edge-sw-eng-02",
+  "expected_confidence": 0.94
+}

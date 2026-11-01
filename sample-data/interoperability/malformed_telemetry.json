@@ -1,0 +1,6 @@
+{
+  "timestamp": "not-an-iso-timestamp",
+  "device_id": "",
+  "metrics": "metrics-should-be-an-object-not-a-string",
+  "status": "UnknownStatusLevel"
+}

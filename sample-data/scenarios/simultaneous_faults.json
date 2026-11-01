@@ -1,0 +1,24 @@
+{
+  "scenario_id": "multiple-simultaneous-faults",
+  "name": "Campus South & North — Simultaneous Independent Faults",
+  "category": "multi_fault",
+  "description": "Two distinct, non-overlapping failures occurring concurrently: Wi-Fi RF degradation in Science Quad and Ethernet physical interface errors in Engineering Wing.",
+  "monitored_devices": 900,
+  "affected_devices": 16,
+  "aggregate_health_pct": 98.2,
+  "fault_cohort_1": {
+    "zone": "Science Quad",
+    "affected_devices": 8,
+    "choke_point": "ap-sci-08",
+    "signature": "Wi-Fi RF degradation (RSSI -88 dBm, 28% loss)"
+  },
+  "fault_cohort_2": {
+    "zone": "Engineering Wing",
+    "affected_devices": 8,
+    "choke_point": "edge-sw-eng-02",
+    "signature": "Physical interface errors (280 CRC errors, 18% loss)"
+  },
+  "expected_verdict": "PROBABLE_FAULT",
+  "expected_root_cause": "Multiple Concurrent Faults: RF Degradation (ap-sci-08) and Interface CRC Errors (edge-sw-eng-02)",
+  "expected_confidence": 0.91
+}

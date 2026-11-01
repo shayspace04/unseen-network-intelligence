@@ -1,0 +1,19 @@
+{
+  "scenario_id": "insufficient-evidence",
+  "name": "Library Stacks — Transient Telemetry Gap",
+  "category": "abstain",
+  "description": "Transient jitter spike observed across 2 IoT environmental sensors with missing counterfactual peers and stale telemetry records.",
+  "monitored_devices": 350,
+  "affected_devices": 2,
+  "aggregate_health_pct": 99.4,
+  "affected_cohort_metrics": {
+    "latency_ms": 42.0,
+    "packet_loss_pct": 2.1,
+    "stale_seconds": 680,
+    "is_stale": true
+  },
+  "expected_verdict": "ABSTAIN_INSUFFICIENT_EVIDENCE",
+  "expected_status": "abstained",
+  "expected_confidence": 0.35,
+  "rationale": "Evidence fails to meet minimum evidentiary threshold (0.60). Telemetry is stale (>300s) and insufficient to attribute root cause."
+}

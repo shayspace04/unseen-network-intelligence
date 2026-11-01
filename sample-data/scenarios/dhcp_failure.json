@@ -1,0 +1,25 @@
+{
+  "scenario_id": "dhcp-starvation",
+  "name": "Engineering Wing B — DHCP Pool Exhaustion",
+  "category": "dhcp",
+  "description": "VLAN 142 DHCP address pool completely exhausted by transient IoT endpoints, causing failing laptops to fall back to APIPA 169.254 addresses.",
+  "monitored_devices": 120,
+  "affected_devices": 14,
+  "aggregate_health_pct": 93.3,
+  "affected_cohort_metrics": {
+    "dhcp_lease_state": "expired",
+    "ip_address_prefix": "169.254.",
+    "packet_loss_pct": 100.0,
+    "latency_ms": 0.0
+  },
+  "control_cohort_metrics": {
+    "dhcp_lease_state": "valid",
+    "ip_address_prefix": "10.142.",
+    "packet_loss_pct": 0.0,
+    "latency_ms": 4.2
+  },
+  "choke_point": "ap-eng-04",
+  "expected_verdict": "PROBABLE_FAULT",
+  "expected_root_cause": "DHCP Scope Exhaustion on VLAN 142 (APIPA Fallback)",
+  "expected_confidence": 0.94
+}

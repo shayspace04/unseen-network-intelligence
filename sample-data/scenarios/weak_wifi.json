@@ -1,0 +1,26 @@
+{
+  "scenario_id": "wifi-degradation",
+  "name": "Science Quad Lecture Hall — Wi-Fi RF Degradation",
+  "category": "wifi_rf",
+  "description": "High user density and co-channel RF interference causing severe signal attenuation and frame retries on access point ap-sci-12.",
+  "monitored_devices": 620,
+  "affected_devices": 12,
+  "aggregate_health_pct": 98.1,
+  "affected_cohort_metrics": {
+    "signal_strength_dbm": -86.5,
+    "packet_loss_pct": 28.4,
+    "latency_ms": 178.0,
+    "jitter_ms": 42.1,
+    "interface_errors": 0
+  },
+  "control_cohort_metrics": {
+    "signal_strength_dbm": -52.0,
+    "packet_loss_pct": 0.0,
+    "latency_ms": 4.8,
+    "jitter_ms": 0.4
+  },
+  "choke_point": "ap-sci-12",
+  "expected_verdict": "PROBABLE_FAULT",
+  "expected_root_cause": "Wi-Fi RF Interference & Signal Degradation on ap-sci-12",
+  "expected_confidence": 0.93
+}

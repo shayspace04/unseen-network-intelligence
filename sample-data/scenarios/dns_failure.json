@@ -1,0 +1,25 @@
+{
+  "scenario_id": "dns-resolver-silent-drop",
+  "name": "Medical Center Wing — DNS Resolver Silent Drop",
+  "category": "dns",
+  "description": "Corrupted routing table on local recursive DNS resolver silently dropping UDP port 53 packets while ICMP and gateway routing remain operational.",
+  "monitored_devices": 780,
+  "affected_devices": 15,
+  "aggregate_health_pct": 98.1,
+  "affected_cohort_metrics": {
+    "dns_resolution_ms": 3200.0,
+    "packet_loss_pct": 0.0,
+    "latency_ms": 3.2,
+    "dhcp_lease_state": "valid"
+  },
+  "control_cohort_metrics": {
+    "dns_resolution_ms": 12.4,
+    "packet_loss_pct": 0.0,
+    "latency_ms": 3.1,
+    "dhcp_lease_state": "valid"
+  },
+  "choke_point": "dist-sw-sci",
+  "expected_verdict": "PROBABLE_FAULT",
+  "expected_root_cause": "Silent DNS Resolver Drop / Timeout on UDP Port 53",
+  "expected_confidence": 0.95
+}

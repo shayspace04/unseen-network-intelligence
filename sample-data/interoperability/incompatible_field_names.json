@@ -1,0 +1,7 @@
+{
+  "description": "Legacy telemetry frame utilizing incompatible snake_case / non-standard keys instead of required metrics mapping",
+  "device_identifier": "SW_LEGACY_01",
+  "ping_time": "45ms",
+  "dropped_packets": "12%",
+  "health_flag": "OK"
+}

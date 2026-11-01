@@ -1,0 +1,19 @@
+{
+  "scenario_id": "healthy-baseline",
+  "name": "Campus Fleet — Nominal Network Operation",
+  "category": "nominal",
+  "description": "All 1,000 campus endpoints operating within normal operational parameters. Zero active incidents or localized anomalies.",
+  "monitored_devices": 1000,
+  "affected_devices": 0,
+  "aggregate_health_pct": 100.0,
+  "metrics_summary": {
+    "packet_loss_pct": 0.02,
+    "latency_ms": 4.1,
+    "jitter_ms": 0.3,
+    "dhcp_valid_pct": 100.0,
+    "dns_resolution_ms": 14.2
+  },
+  "expected_verdict": "NO_FAULT_DETECTED",
+  "expected_status": "diagnosed",
+  "expected_confidence": 0.99
+}

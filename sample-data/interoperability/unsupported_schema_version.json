@@ -1,0 +1,13 @@
+{
+  "schema_version": "2.5.0",
+  "message_id": "MSG-INVALID-VER",
+  "incident_id": "INV-2026-TEST",
+  "sender": "ExternalAgent",
+  "recipient": "Adjudicator",
+  "message_type": "cohort_discovery",
+  "timestamp": "10:48:00.000",
+  "topic": "Future schema test",
+  "payload": {
+    "affected_devices": ["DEV-01"]
+  }
+}

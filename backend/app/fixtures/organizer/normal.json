@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-11-01T08:00:00.000000Z",
+  "device_id": "SW_CAMPUS_1",
+  "metrics": {
+    "cpu_utilization_pct": 14.2,
+    "link_utilization_pct": 22.5,
+    "packet_loss_pct": 0.0,
+    "latency_ms": 4.1,
+    "queue_drops": 0,
+    "interface_errors": 0
+  },
+  "status": "Healthy"
+}

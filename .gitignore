@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Python Virtual Environments & Bytecode
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environment files (preserve template)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+!.env.example
+
+# Build & Distribution outputs
+dist/
+build/
+out/
+.next/
+*.egg-info/
+.eggs/
+
+# Testing & Coverage
+coverage/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.nyc_output
+
+# Logs & Temporary Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tmp
+*.temp
+
+# SQLite Databases & WAL/SHM (Sample data provided in sample-data/)
+*.db
+*.db-wal
+*.db-shm
+unseen.db
+backend/unseen.db
+
+# OS Artifacts & Editor Dirs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

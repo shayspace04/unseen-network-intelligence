@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0.0",
+  "message_id": "MSG-MISSING-FIELDS",
+  "payload": {
+    "data": "Missing sender, recipient, message_type, and incident_id"
+  }
+}

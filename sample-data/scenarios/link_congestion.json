@@ -1,0 +1,27 @@
+{
+  "scenario_id": "shared-link-congestion",
+  "name": "Dormitory North — Shared Link Congestion",
+  "category": "congestion",
+  "description": "Peak evening streaming traffic causing egress buffer exhaustion and selective queue drops on distribution switch dist-sw-eng.",
+  "monitored_devices": 850,
+  "affected_devices": 14,
+  "aggregate_health_pct": 98.4,
+  "affected_cohort_metrics": {
+    "packet_loss_pct": 24.8,
+    "latency_ms": 210.5,
+    "jitter_ms": 38.2,
+    "queue_drops": 4200,
+    "interface_errors": 0
+  },
+  "control_cohort_metrics": {
+    "packet_loss_pct": 0.1,
+    "latency_ms": 5.4,
+    "jitter_ms": 0.5,
+    "queue_drops": 0,
+    "interface_errors": 0
+  },
+  "choke_point": "dist-sw-eng",
+  "expected_verdict": "PROBABLE_FAULT",
+  "expected_root_cause": "Uplink Congestion & Buffer Saturation on dist-sw-eng",
+  "expected_confidence": 0.92
+}

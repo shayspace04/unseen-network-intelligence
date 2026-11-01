@@ -33,7 +33,15 @@ export interface InvestigationEvent {
   payload?: any;
 }
 
-const API_BASE = 'http://localhost:8000';
+const getApiBase = (): string => {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl && typeof envUrl === 'string' && envUrl.trim().length > 0) {
+    return envUrl.trim().replace(/\/+$/, '');
+  }
+  return 'http://localhost:8000';
+};
+
+const API_BASE = getApiBase();
 
 export async function checkBackendHealth(): Promise<BackendHealth | null> {
   try {

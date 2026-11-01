@@ -8,11 +8,45 @@ import os
 from contextlib import contextmanager
 from typing import List, Dict, Any, Optional
 
-DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "unseen.db")
+def get_db_path() -> str:
+    """
+    Resolves the SQLite database path with configurable environment overrides:
+    1. DATABASE_PATH: explicit file path (e.g. /app/data/unseen.db for Railway volume mount)
+    2. DATABASE_URL: standard URL connection string (e.g. sqlite:////app/data/unseen.db)
+    3. Default fallback: local backend/unseen.db
+    """
+    env_path = os.environ.get("DATABASE_PATH")
+    if env_path and env_path.strip():
+        return os.path.abspath(env_path.strip())
+
+    db_url = os.environ.get("DATABASE_URL")
+    if db_url and db_url.strip():
+        url = db_url.strip()
+        if url.startswith("sqlite:////"):
+            return "/" + url[len("sqlite:////"):]
+        elif url.startswith("sqlite:///"):
+            return os.path.abspath(url[len("sqlite:///"):])
+        elif url.startswith("sqlite://"):
+            return os.path.abspath(url[len("sqlite://"):])
+
+    return os.path.join(
+        os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+        "unseen.db"
+    )
+
+def ensure_db_dir_exists(path: str) -> None:
+    """Ensures that the directory containing the SQLite database file exists."""
+    db_dir = os.path.dirname(os.path.abspath(path))
+    if db_dir:
+        os.makedirs(db_dir, exist_ok=True)
+
+DB_PATH = get_db_path()
 
 @contextmanager
 def get_db():
-    conn = sqlite3.connect(DB_PATH, timeout=15.0)
+    db_path = get_db_path()
+    ensure_db_dir_exists(db_path)
+    conn = sqlite3.connect(db_path, timeout=15.0)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL;")
     conn.execute("PRAGMA foreign_keys=ON;")
@@ -27,6 +61,8 @@ def get_db():
 
 def init_db():
     """Initializes SQLite tables for UNSEEN platform."""
+    db_path = get_db_path()
+    ensure_db_dir_exists(db_path)
     with get_db() as conn:
         conn.executescript("""
         CREATE TABLE IF NOT EXISTS scenarios (

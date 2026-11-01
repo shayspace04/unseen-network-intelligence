@@ -54,6 +54,8 @@ pnpm-debug.log*
 *.db-shm
 unseen.db
 backend/unseen.db
+data/
+/app/data/
 
 # OS Artifacts & Editor Dirs
 .DS_Store
